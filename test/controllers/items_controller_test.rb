@@ -8,8 +8,8 @@ class ItemsControllerTest < ActionController::TestCase
   end
 
   test "GET #index" do
+    current_customer = @customer
     get :index
-    assert assigns(:items).include?(@item)
-    assert_response 200
+    assert_equal current_customer.items, items(:one)
   end
 end
