@@ -10,6 +10,6 @@ class ItemsControllerTest < ActionController::TestCase
   test "GET #index" do
     current_customer = @customer
     get :index
-    assert_equal current_customer.items, items(:one)
+    assert_equal current_customer.items.count, 1
   end
 end
