@@ -6,6 +6,7 @@
   <li class="section_<%= a+1 %>">
     <% a += 1 %>
     <% row.each do |item| %>
+    <span>
       <div class="customer_item_list">
         <strong>Name</strong>: <%= item.name %>
       </div>
@@ -15,6 +16,7 @@
       <div class="customer_item_list">
         <strong>Price</strong>: <%= number_to_currency(item.price_in_cents / 100) %>
       </div>
+    </span>
     <% end %>
   </li>
 <% end %>
