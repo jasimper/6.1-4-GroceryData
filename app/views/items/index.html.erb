@@ -1,34 +1,55 @@
-<% a = 0 %>
-<% b = 1 %>
+<% pn = params[:page_number].to_i %>
+<% mn = params[:max_num].to_i %>
 <h3>Your Grocery List</h3>
-<ul class = "item_list">
-<% @items.each_slice(25) do |row| %>
-  <li class="section_<%= a+1 %>">
-    <% a += 1 %>
-    <% row.each do |item| %>
-    <span>
-      <div class="customer_item_list">
-        <strong>Name</strong>: <%= item.name %>
-      </div>
-      <div class="customer_item_list">
-        <strong>Category</strong>: <%= item.category %>
-      </div>
-      <div class="customer_item_list">
-        <strong>Price</strong>: <%= number_to_currency(item.price_in_cents / 100) %>
-      </div>
-    </span>
-    <% end %>
+<ul class="link_list">
+  <% if pn < 1  %>
+    <li></li>
+  <% else %>
+    <li><%= link_to 'Previous', items_per_page_path(page_number: (pn - 1)) %></li>
+  <% end %>
+  <li><%= (pn + 1) %></li>
+  <% if mn <= (pn + 1) %>
+    <li></li>
+  <% else %>
+    <li><%= link_to 'Next', items_per_page_path(page_number: (pn + 1)) %></li>
+  <% end %>
+</ul>
+<ul class="item_list">
+  <li class="header">
+    <div class="customer_item_list"> <strong>Name</strong> </div>
+    <div class="customer_item_list"> <strong>Category</strong> </div>
+    <div class="customer_item_list"> <strong>Price</strong> </div>
   </li>
+</ul>
+
+<ul class = "item_list">
+<% @items.each do |item| %>
+  <span>
+    <li>
+      <div class="customer_item_list">
+        <%= item.name %>
+      </div>
+      <div class="customer_item_list">
+        <%= item.category %>
+      </div>
+      <div class="customer_item_list">
+        <%= number_to_currency(item.price_in_cents / 100) %>
+      </div>
+    </li>
+  </span>
 <% end %>
 </ul>
 
 <ul class="link_list">
-  <% a.times do %>
-    <li>
-      <a href="display:none;" class="link_<%= b %>" number="<%= b %>">
-        <%= "Page #{b}" %>
-      </a>
-    </li>
-  <% b += 1 %>
+  <% if pn < 1  %>
+    <li></li>
+  <% else %>
+    <li><%= link_to 'Previous', items_per_page_path(page_number: (pn - 1)) %></li>
+  <% end %>
+  <li><%= (pn + 1) %></li>
+  <% if mn <= (pn + 1) %>
+    <li></li>
+  <% else %>
+    <li><%= link_to 'Next', items_per_page_path(page_number: (pn + 1)) %></li>
   <% end %>
 </ul>

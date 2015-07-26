@@ -1,6 +1,10 @@
+body {
+  max-width: 900px;
+  margin: auto;
+}
 .item_list {
-  width: 80%;
-  margin: 15px, auto;
+  width: 90%;
+  margin: 15px auto;
   color: #020202;
   list-style: none;
 }
@@ -18,9 +22,10 @@ span {
   font-size: 1.2em;
 }
 .link_list {
+  display: block;
   list-style: none;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 10px auto;
+  text-align: center;
   padding-left: 0;
   > li {
     display: inline-block;
@@ -40,7 +45,7 @@ span {
       text-decoration: none;
     }
     > li > a:hover {
-        color: #CCCCCC;
-        border-bottom: solid 1px #CCCCCC;
+        color: #AAAAAA;
+        border-bottom: solid 1px #AAAAAA;
     }
 }
