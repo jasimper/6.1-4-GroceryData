@@ -1,16 +1,18 @@
+
+
 <% pn = params[:page_number].to_i %>
 <% mn = params[:max_num].to_i %>
 <ul class="link_list">
   <% if pn < 1  %>
     <li></li>
   <% else %>
-    <li><%= link_to 'Previous', items_per_page_path(page_number: (pn - 1)) %></li>
+    <li><%= link_to "Previous", items_per_page_path(page_number: (pn - 1)) %></li>
   <% end %>
   <li><%= (pn + 1) %></li>
   <% if mn <= (pn + 1) %>
     <li></li>
   <% else %>
-    <li><%= link_to 'Next', items_per_page_path(page_number: (pn + 1)) %></li>
+    <li><%= link_to "Next", items_per_page_path(page_number: (pn + 1)) %></li>
   <% end %>
 </ul>
 <ul class="item_list">
@@ -43,12 +45,12 @@
   <% if pn < 1  %>
     <li></li>
   <% else %>
-    <li><%= link_to 'Previous', items_per_page_path(page_number: (pn - 1)) %></li>
+    <li><%= link_to "Previous", items_per_page_path(page_number: (pn - 1)) %></li>
   <% end %>
   <li><%= (pn + 1) %></li>
   <% if mn <= (pn + 1) %>
     <li></li>
   <% else %>
-    <li><%= link_to 'Next', items_per_page_path(page_number: (pn + 1)) %></li>
+    <li><%= link_to "Next", items_per_page_path(page_number: (pn + 1)) %></li>
   <% end %>
 </ul>
