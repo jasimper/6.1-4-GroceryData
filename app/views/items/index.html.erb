@@ -1,55 +1,6 @@
-<% pn = params[:page_number].to_i %>
-<% mn = params[:max_num].to_i %>
 <h3>Your Grocery List</h3>
-<ul class="link_list">
-  <% if pn < 1  %>
-    <li></li>
-  <% else %>
-    <li><%= link_to 'Previous', items_per_page_path(page_number: (pn - 1)) %></li>
-  <% end %>
-  <li><%= (pn + 1) %></li>
-  <% if mn <= (pn + 1) %>
-    <li></li>
-  <% else %>
-    <li><%= link_to 'Next', items_per_page_path(page_number: (pn + 1)) %></li>
-  <% end %>
-</ul>
-<ul class="item_list">
-  <li class="header">
-    <div class="customer_item_list"> <strong>Name</strong> </div>
-    <div class="customer_item_list"> <strong>Category</strong> </div>
-    <div class="customer_item_list"> <strong>Price</strong> </div>
-  </li>
-</ul>
+<javascript 'pagination'>
 
-<ul class = "item_list">
-<% @items.each do |item| %>
-  <span>
-    <li>
-      <div class="customer_item_list">
-        <%= item.name %>
-      </div>
-      <div class="customer_item_list">
-        <%= item.category %>
-      </div>
-      <div class="customer_item_list">
-        <%= number_to_currency(item.price_in_cents / 100) %>
-      </div>
-    </li>
-  </span>
-<% end %>
-</ul>
-
-<ul class="link_list">
-  <% if pn < 1  %>
-    <li></li>
-  <% else %>
-    <li><%= link_to 'Previous', items_per_page_path(page_number: (pn - 1)) %></li>
-  <% end %>
-  <li><%= (pn + 1) %></li>
-  <% if mn <= (pn + 1) %>
-    <li></li>
-  <% else %>
-    <li><%= link_to 'Next', items_per_page_path(page_number: (pn + 1)) %></li>
-  <% end %>
-</ul>
+<div id="groceries">
+  <%= render 'item_list' %>
+</div>
