@@ -1,5 +1,5 @@
 $(function() {
-  $(".link_list").delegate("a", "click", function() {
+  $(".link_list").on("click", "a", function() {
     $.get(this.href, null, null, "script");
     return false;
   });
