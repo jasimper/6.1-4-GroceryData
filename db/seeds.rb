@@ -23,7 +23,7 @@ items = [
 3.times do
   address = "#{Faker::Address.street_address}, #{Faker::Address.city}, #{Faker::Address.state} #{Faker::Address.zip}"
   c = Customer.create!(name: Faker::Name.name, address: address, email:  Faker::Internet.email, password: 'password', password_confirmation: 'password')
-  100.times do
+  1000.times do
     item = items.sample
     c.items.create!(name: item[:name],
                     price_in_cents: item[:price_in_cents],

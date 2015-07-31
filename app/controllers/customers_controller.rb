@@ -7,7 +7,7 @@ class CustomersController < ApplicationController
     customer = Customer.new(customer_params)
     if customer.save
       session[:customer_id] = customer.id
-      redirect_to 'root_path'
+      redirect_to root_path
     else
       redirect_to '/signup', notice: "Error. Please try again."
     end
