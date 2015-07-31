@@ -1,15 +1,9 @@
-<ul>
-<% @items.each do |item| %>
-  <li>
-    <div>
-      <strong>Name</strong>: <%= item.name %>
-    </div>
-    <div>
-      <strong>Category</strong>: <%= item.category %>
-    </div>
-    <div>
-      <strong>Price</strong>: <%= number_to_currency(item.price_in_cents / 100) %>
-    </div>
-  </li>
+<h3>Your Grocery List</h3>
+
+<% if current_customer.items.length < 1 %>
+<h3> Sorry, but you have no items! </h3>
+<% else %>
+<div id="groceries">
+  <%= render "item_list" %>
+</div>
 <% end %>
-</ul>
